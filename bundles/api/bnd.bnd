@@ -1,0 +1,5 @@
+-dsannotations : *
+-metatype: *
+Export-Packages: \
+
+Bundle-SymbolicName: ${project.artifactId}

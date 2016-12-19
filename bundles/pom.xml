@@ -10,6 +10,101 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bundles</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>api</module>
+    </modules>
+
+    <properties>
+        <bnd.version>3.3.0</bnd.version>
+        <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+        <maven.resources.plugin.version>3.0.1</maven.resources.plugin.version>
+        <blueprintAnnotationScanPath>de.deicon.sandbox.karaf</blueprintAnnotationScanPath>
+    </properties>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.aries.blueprint</groupId>
+                    <artifactId>blueprint-maven-plugin</artifactId>
+                    <version>1.4.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>blueprint-generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <scanPaths>${blueprinAnnotationScanPath}</scanPaths>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.xbean</groupId>
+                            <artifactId>xbean-finder-shaded</artifactId>
+                            <version>4.5</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST</manifestFile>
+                        </archive>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <version>${bnd.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven.jar.plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven.resources.plugin.version}</version>
+                <executions><execution>
+                    <id>copy-blueprint-to-classes</id>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <phase>prepare-package</phase>
+                    <configuration>
+                        <outputDirectory>${basedir}/target/classes</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>${basedir}/target/generated-resources</directory>
+                                <filtering>false</filtering>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution></executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
