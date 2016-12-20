@@ -18,7 +18,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.karaf:org.apache.karaf.exception:4.0.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.karaf:org.apache.karaf.client:4.0.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.sshd:sshd-core:0.14.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-api:1.7.12" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.karaf.jaas:org.apache.karaf.jaas.boot:4.0.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.karaf.diagnostic:org.apache.karaf.diagnostic.boot:4.0.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.birt.runtime:org.eclipse.osgi:3.10.2.v20150203-1939" level="project" />
@@ -33,5 +33,8 @@
     <orderEntry type="library" name="Maven: org.apache.karaf.features:org.apache.karaf.features.core:4.0.4" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-core:2.2.11" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.11" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.ops4j.pax.cdi:pax-cdi-api:0.12.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.compendium:4.3.1" level="project" />
   </component>
 </module>
